@@ -1,1 +1,22 @@
 
+body {
+  height: 100%;
+  background: meh;
+}
+
+html {
+  height: 100%
+}
+
+.container {
+  display: grid;
+  position:relative
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: 'tl tl tl tr tr tr'
+                       'tl tl tl tr tr tr'
+                       'br br br br br br'
+                       'br br br br br br';
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
