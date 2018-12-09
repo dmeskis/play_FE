@@ -24,4 +24,13 @@ html {
 .top-left {
   grid-area: tl;
   background-color: blue;
+  padding: 10px;
+  margin: 5px;
+}
+
+.top-right {
+  grid-area: tr;
+  background-color: red;
+  padding: 10px;
+  margin: 5px;
 }
