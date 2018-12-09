@@ -1,7 +1,7 @@
 
 body {
   height: 100%;
-  background: #B5FFE1;
+  background: #65B891;
 }
 
 html {
@@ -23,23 +23,29 @@ html {
 
 .top-left {
   grid-area: tl;
-  background-color: #4E878C;
+  background-color: #B5FFE1;
   padding: 10px;
   margin: 5px;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888
 }
 
 .top-right {
   grid-area: tr;
-  background-color: #4E878C;
+  background-color: #B5FFE1;
   padding: 10px;
   margin: 5px;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888
 }
 
 .bottom-row {
   grid-area: br;
   padding: 10px;
   margin: 5px;
-  background-color: #4E878C;
+  background-color: #B5FFE1;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888;
 }
 
 .search-bar {
@@ -49,6 +55,10 @@ html {
 .search {
   width: 20%;
   height: 6%;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888;
+  padding: 5px;
+  margin: 5px;
 }
 
 table {
@@ -58,11 +68,11 @@ table {
 }
 
 td, th {
-  border: 1px solid #B5FFE1;
+  border: 1px solid #4E878C;
   text-align: left;
   padding: 8px;
 }
-/* 
+/*
 tr:nth-child(even) {
   background-color: #dddddd;
 } */
@@ -72,7 +82,14 @@ tr:nth-child(even) {
   color: #00241B;
 }
 
+#add-button {
+  text-align: center;
+}
+
 #heading {
   text-align: center;
   color: #00241B;
+  font-family: 'Bangers', cursive;
+
 }
+
