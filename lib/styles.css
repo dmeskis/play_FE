@@ -37,9 +37,36 @@ html {
 
 .bottom-row {
   grid-area: br;
+  padding: 10px;
+  margin: 5px;
   background-color: green;
 }
 
 .search-bar {
-text-align: center;
+  text-align: center;
+}
+
+.search {
+  width: 20%;
+  height: 6%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+/* 
+tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+
+.table-names {
+  text-align: center;
 }
