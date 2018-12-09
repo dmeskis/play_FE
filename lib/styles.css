@@ -1,7 +1,7 @@
 
 body {
   height: 100%;
-  background: meh;
+  background: #B5FFE1;
 }
 
 html {
@@ -23,14 +23,14 @@ html {
 
 .top-left {
   grid-area: tl;
-  background-color: blue;
+  background-color: #4E878C;
   padding: 10px;
   margin: 5px;
 }
 
 .top-right {
   grid-area: tr;
-  background-color: red;
+  background-color: #4E878C;
   padding: 10px;
   margin: 5px;
 }
@@ -39,7 +39,7 @@ html {
   grid-area: br;
   padding: 10px;
   margin: 5px;
-  background-color: green;
+  background-color: #4E878C;
 }
 
 .search-bar {
@@ -52,13 +52,13 @@ html {
 }
 
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  color: #00241B;
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #B5FFE1;
   text-align: left;
   padding: 8px;
 }
@@ -69,4 +69,10 @@ tr:nth-child(even) {
 
 .table-names {
   text-align: center;
+  color: #00241B;
+}
+
+#heading {
+  text-align: center;
+  color: #00241B;
 }

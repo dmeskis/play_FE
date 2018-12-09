@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>Playlist Generator</title>
+  <link rel="icon" href="./lib/favicon-music.ico">
   <link rel="stylesheet" href="lib/styles.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
+  <h1 id='heading'>Playlist Generator</h1>
   <div class='search-bar'>
       <form action="/action_page.php">
         <input class='search' type="text" name="fname" value="Find Artist">
@@ -21,7 +23,7 @@
           <th>Artist</th>
           <th>Title</th>
           <th>Album</th>
-          <th>Favorite</th>
+          <th>Remove</th>
         </tr>
         <tr>
           <td>Hi, I'm your first cell.</td>
@@ -35,16 +37,12 @@
       <h3 class='table-names'>Playlists</h3>
       <table>
         <tr>
-          <th>Artist</th>
-          <th>Title</th>
-          <th>Album</th>
-          <th>Remove</th>
+          <th>Name</th>
+          <th>Track Count</th>
         </tr>
         <tr>
           <td>Hi, I'm your first cell.</td>
           <td>I'm your second cell.</td>
-          <td>I'm your third cell.</td>
-          <td>I'm your fourth cell.</td>
         </tr>
       </table>
     </div>
@@ -55,13 +53,17 @@
           <th>Artist</th>
           <th>Title</th>
           <th>Album</th>
-          <th>Favorite</th>
+          <th>Genre</th>
+          <th>Release Date</th>
+          <th>Add to favorites</th>
         </tr>
         <tr>
           <td>Hi, I'm your first cell.</td>
           <td>I'm your second cell.</td>
           <td>I'm your third cell.</td>
           <td>I'm your fourth cell.</td>
+          <td>I'm your fifth cell.</td>
+          <td>I'm your sixth cell.</td>
         </tr>
       </table>
     </div>
