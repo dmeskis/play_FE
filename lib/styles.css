@@ -1,7 +1,7 @@
 
 body {
   height: 100%;
-  background: meh;
+  background: #65B891;
 }
 
 html {
@@ -23,14 +23,73 @@ html {
 
 .top-left {
   grid-area: tl;
-  background-color: blue;
+  background-color: #B5FFE1;
   padding: 10px;
   margin: 5px;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888
 }
 
 .top-right {
   grid-area: tr;
-  background-color: red;
+  background-color: #B5FFE1;
   padding: 10px;
   margin: 5px;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888
 }
+
+.bottom-row {
+  grid-area: br;
+  padding: 10px;
+  margin: 5px;
+  background-color: #B5FFE1;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888;
+}
+
+.search-bar {
+  text-align: center;
+}
+
+.search {
+  width: 20%;
+  height: 6%;
+  border-radius: 25px;
+  box-shadow: 3px 5px #888888;
+  padding: 5px;
+  margin: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #00241B;
+}
+
+td, th {
+  border: 1px solid #4E878C;
+  text-align: left;
+  padding: 8px;
+}
+/*
+tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+
+.table-names {
+  text-align: center;
+  color: #00241B;
+}
+
+#add-button {
+  text-align: center;
+}
+
+#heading {
+  text-align: center;
+  color: #00241B;
+  font-family: 'Bangers', cursive;
+
+}
+
