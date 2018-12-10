@@ -1,0 +1,1 @@
+export const MUSIXMATCH_API_KEY = '229d1f0db4db72de996641e7a806b813'
