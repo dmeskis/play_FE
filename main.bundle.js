@@ -42,12 +42,38 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	// This file is in the entry point in your webpack config.
-	var test = "hello";
+	// require('dotenv').config();
+
+	var api_key = ("229d1f0db4db72de996641e7a806b813");
+
+	var fetchArtistData = function fetchArtistData() {
+	  var artist = $('#artist-input').val();
+	  var url = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=' + api_key + '&q_artist=' + artist + '&format=json&page_size=50';
+
+	  fetch(url, { mode: 'cors' }).then(function (result) {
+	    return result.json();
+	  }).then(function (artistData) {
+	    buildArtistSongs(artistData);
+	  }).catch(function (error) {
+	    console.error({ error: error });
+	  });
+
+	  $('#artist-input').val('Find Artist');
+	};
+
+	var buildArtistSongs = function buildArtistSongs(artistData) {
+	  var tracks = artistData['message']['body']['track_list'];
+	  tracks.forEach(function (track) {
+	    $('.artist-song-table').append('\n      <tr>\n        <td>' + track['track']['artist_name'] + '</td>\n        <td>' + track['track']['track_name'] + '</td>\n        <td>' + track['track']['album_name'] + '</td>\n        <td>Genre goes here</td>\n        <td>' + track['track']['first_release_date'] + '</td>\n        <td>BUTTON GOES HERE</td>\n      </tr>\n      ');
+	  });
+	};
+
+	$('#search-button').on('click', fetchArtistData);
 
 /***/ })
 /******/ ]);
