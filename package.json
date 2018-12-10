@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "dotenv": "^6.2.0",
+    "dotenv-webpack": "^1.5.7",
     "express": "^4.16.4"
   },
   "engines": {
