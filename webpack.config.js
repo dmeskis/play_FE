@@ -21,11 +21,7 @@ module.exports = {
     extensions: ['', '.js', '.json', '.css', '.scss']
   },
   plugins: [
-    new Dotenv(),
-    'process.env': {
-      NODE_ENV: JSON.stringify(nodeEnv),
-    },
-    TRACE_TURBOLINKS: devBuild,
+    new Dotenv()
   ],
   node: {
      fs: "empty"
