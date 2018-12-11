@@ -47,7 +47,6 @@
 	'use strict';
 
 	// This file is in the entry point in your webpack config.
-	// require('dotenv').config();
 
 	var api_key = ("229d1f0db4db72de996641e7a806b813");
 
