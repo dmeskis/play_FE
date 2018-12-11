@@ -75,8 +75,6 @@
 	  });
 	};
 
-	// track['track']['primary_genres']["music_genre_list"][0]
-
 	var assignGenre = function assignGenre(genre) {
 	  if (genre === undefined) {
 	    return 'Misc';
@@ -89,8 +87,10 @@
 	$('.artist-song-table').on('click', '.favorite_song', function () {
 	  var id = this.value;
 	  var cells = $('#' + id)[0].cells; // this grabs the row cells that belong to the corresponding button
+	  var payload = new Object();
 	  Array.prototype.forEach.call(cells, function (cell) {
-	    console.log(cell.innerText);
+	    payload[cell.className] = cell.innerText;
+	    debugger;
 	  });
 	});
 
