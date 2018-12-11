@@ -68,11 +68,31 @@
 	var buildArtistSongs = function buildArtistSongs(artistData) {
 	  var tracks = artistData['message']['body']['track_list'];
 	  tracks.forEach(function (track) {
-	    $('.artist-song-table').append('\n      <tr>\n        <td>' + track['track']['artist_name'] + '</td>\n        <td>' + track['track']['track_name'] + '</td>\n        <td>' + track['track']['album_name'] + '</td>\n        <td>Genre goes here</td>\n        <td>' + track['track']['first_release_date'] + '</td>\n        <td>BUTTON GOES HERE</td>\n      </tr>\n      ');
+	    var track_id = track['track']['track_id'];
+	    var track_genre = track['track']['primary_genres'][0];
+	    var genre = assignGenre(track_genre);
+	    $('.artist-song-table').append('\n      <tr id=\'' + track_id + '\'>\n        <td class=\'artist_name\'>' + track['track']['artist_name'] + '</td>\n        <td class=\'track_name\'>' + track['track']['track_name'] + '</td>\n        <td class=\'album_name\'>' + track['track']['album_name'] + '</td>\n        <td class=\'genre\'>' + genre + '</td>\n        <td class=\'release_date\'>' + track['track']['first_release_date'] + '</td>\n        <td><button class=\'favorite_song\' value=\'' + track_id + '\'></button></td>\n      </tr>\n      ');
 	  });
 	};
 
+	// track['track']['primary_genres']["music_genre_list"][0]
+
+	var assignGenre = function assignGenre(genre) {
+	  if (genre === undefined) {
+	    return 'Misc';
+	  } else {
+	    return genre;
+	  }
+	};
+
 	$('#search-button').on('click', fetchArtistData);
+	$('.artist-song-table').on('click', '.favorite_song', function () {
+	  var id = this.value;
+	  var cells = $('#' + id)[0].cells; // this grabs the row cells that belong to the corresponding button
+	  Array.prototype.forEach.call(cells, function (cell) {
+	    console.log(cell.innerText);
+	  });
+	});
 
 /***/ })
 /******/ ]);
