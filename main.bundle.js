@@ -68,9 +68,10 @@
 	var buildArtistSongs = function buildArtistSongs(artistData) {
 	  var tracks = artistData['message']['body']['track_list'];
 	  tracks.forEach(function (track) {
-	    debugger;
 	    var track_id = track['track']['track_id'];
-	    $('.artist-song-table').append('\n      <tr id=\'' + track_id + '\'>\n        <td class=\'artist_name\'>' + track['track']['artist_name'] + '</td>\n        <td class=\'track_name\'>' + track['track']['track_name'] + '</td>\n        <td class=\'album_name\'>' + track['track']['album_name'] + '</td>\n        <td class=\'' + assignGenre() + '\'></td>\n        <td class=\'release_date\'>' + track['track']['first_release_date'] + '</td>\n        <td><button class=\'favorite_song\' value=\'' + track_id + '\'></button></td>\n      </tr>\n      ');
+	    var track_genre = track['track']['primary_genres'][0];
+	    var genre = assignGenre(track_genre);
+	    $('.artist-song-table').append('\n      <tr id=\'' + track_id + '\'>\n        <td class=\'artist_name\'>' + track['track']['artist_name'] + '</td>\n        <td class=\'track_name\'>' + track['track']['track_name'] + '</td>\n        <td class=\'album_name\'>' + track['track']['album_name'] + '</td>\n        <td class=\'genre\'>' + genre + '</td>\n        <td class=\'release_date\'>' + track['track']['first_release_date'] + '</td>\n        <td><button class=\'favorite_song\' value=\'' + track_id + '\'></button></td>\n      </tr>\n      ');
 	  });
 	};
 
