@@ -47,7 +47,6 @@
 	'use strict';
 
 	// This file is in the entry point in your webpack config.
-	// require('dotenv').config();
 
 	var api_key = ("229d1f0db4db72de996641e7a806b813");
 
@@ -69,11 +68,19 @@
 	var buildArtistSongs = function buildArtistSongs(artistData) {
 	  var tracks = artistData['message']['body']['track_list'];
 	  tracks.forEach(function (track) {
-	    $('.artist-song-table').append('\n      <tr>\n        <td>' + track['track']['artist_name'] + '</td>\n        <td>' + track['track']['track_name'] + '</td>\n        <td>' + track['track']['album_name'] + '</td>\n        <td>Genre goes here</td>\n        <td>' + track['track']['first_release_date'] + '</td>\n        <td>BUTTON GOES HERE</td>\n      </tr>\n      ');
+	    var track_id = track['track']['track_id'];
+	    $('.artist-song-table').append('\n      <tr id=\'' + track_id + '\'>\n        <td class=\'artist_name\'>' + track['track']['artist_name'] + '</td>\n        <td class=\'track_name\'>' + track['track']['track_name'] + '</td>\n        <td class=\'album_name\'>' + track['track']['album_name'] + '</td>\n        <td class=\'genre\'>Genre goes here</td>\n        <td class=\'release_date\'>' + track['track']['first_release_date'] + '</td>\n        <td><button class=\'favorite_song\' value=\'' + track_id + '\'></button></td>\n      </tr>\n      ');
 	  });
 	};
 
 	$('#search-button').on('click', fetchArtistData);
+	$('.artist-song-table').on('click', '.favorite_song', function () {
+	  var id = this.value;
+	  var cells = $('#' + id)[0].cells;
+	  Array.prototype.forEach.call(cells, function (cell) {
+	    console.log(cell.innerText);
+	  });
+	});
 
 /***/ })
 /******/ ]);
