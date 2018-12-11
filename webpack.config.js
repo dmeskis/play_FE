@@ -1,5 +1,8 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+if ((process.env.NODE_ENV || 'development') === 'development') {
+  require('dotenv').load();
+} 
 
 module.exports = {
   entry: {
@@ -21,8 +24,10 @@ module.exports = {
     extensions: ['', '.js', '.json', '.css', '.scss']
   },
   plugins: [
-    new Dotenv()
-  ],
+    new Dotenv({
+        path: path.resolve(__dirname, '..', '.env'),
+    }),
+],
   node: {
      fs: "empty"
   }
