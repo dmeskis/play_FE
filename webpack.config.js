@@ -1,6 +1,7 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-if ((process.env.NODE_ENV || 'production') === 'production') {
+
+if ((process.env.NODE_ENV || 'development') === 'development') {
   require('dotenv').load();
 }
 
@@ -25,9 +26,12 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-        path: path.resolve(__dirname, '..', '.env'),
-    }),
-],
+      path: './.env', // load this now instead of the ones in '.env'
+      safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+      silent: true // hide any errors
+    })
+  ],
   node: {
      fs: "empty"
   }
