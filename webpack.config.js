@@ -1,8 +1,8 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-if ((process.env.NODE_ENV || 'development') === 'development') {
+if ((process.env.NODE_ENV || 'production') === 'production') {
   require('dotenv').load();
-} 
+}
 
 module.exports = {
   entry: {
