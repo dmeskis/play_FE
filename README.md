@@ -1,4 +1,8 @@
-# Self-Directed Front-End Start Kit
+# Play Front-End
+
+## Description
+
+* This is the front-end repository for the full-stack Play project of Mod 4 at Turing School of Software and Design. The back-end repository can be found [Here[(https://github.com/JLing88/play). [Jesse Ling](https://github.com/JLing88) and I built this project out over two weeks following the specifications found [here](http://backend.turing.io/module4/projects/play/play). It utilizes the Musixmatch API as well as our back-end API to create a user interface for finding songs by artist and adding them to custom playlists. We built it using the [Express](https://expressjs.com/) framework for [NodeJS](https://nodejs.org/). We also used the [Knex.js](https://knexjs.org/) SQL builder to query our database on our backend. We were not exposed to these technologies before this project, so it was an exercise in juggling our learning and then applying these technical concepts.
 
 ## Initial Setup
 
