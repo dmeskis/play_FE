@@ -83,6 +83,21 @@
 	  }
 	};
 
+	var postSong = function postSong(payload) {
+	  debugger;
+	  url = 'https://playbe.herokuapp.com/api/v1/songs';
+	  return fetch(url, {
+	    method: "POST",
+	    mode: "cors",
+	    headers: {
+	      "Content-Type": "application/json; charset=utf-8"
+	    },
+	    body: JSON.stringify(payload)
+	  }).then(function (response) {
+	    return response.json();
+	  });
+	};
+
 	$('#search-button').on('click', fetchArtistData);
 	$('.artist-song-table').on('click', '.favorite_song', function () {
 	  var valid_key = ['name', 'artist_name', 'genre', 'song_rating'];
@@ -93,8 +108,8 @@
 	    if (valid_key.includes(cell.className)) {
 	      payload[cell.className] = cell.innerText;
 	    }
-	    debugger;
 	  });
+	  postSong(payload);
 	});
 
 /***/ })
