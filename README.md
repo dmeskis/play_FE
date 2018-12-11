@@ -20,6 +20,9 @@ See the site in action here: https://dry-shelf-31526.herokuapp.com/
   ```shell
   npm install
   ```
+4. Follow the instructions for setting up [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack) to set up your       environment variables. You will need to sign up for an API key at Musixmatch and assign that to the variable MUSIXMATCH_API_KEY in your .env file to make requests to their api.
+
+5. Head over to our [back-end respository](https://github.com/JLing88/play) for this project and follow the instructions there if you'd like to host your own copy of our backend. Otherwise leave the code as it is and use our backend.
 
 ## Running the Server Locally
 
@@ -32,26 +35,6 @@ npm start
 Once the server is running, visit in your browser:
 
 * `http://localhost:8080/` to run your application.
-
-
-## GitHub Pages Setup
-
-This site will be served from GitHub Pages in production.
-
-In order to see your application running on production:
-
-1. From the command line, run `npm run build`.
-
-2. Commit and push your application to GitHub.
-
-3. Visit your repository on Github
-
-4. Go to Settings
-
-5. Under the Github Pages section of Options, select 'master' as your source and click `Save`
-
-Be sure to `npm run build` and commit before each push to master. A few seconds after you push up, you should be able to see your application at <https://your-github-username.github.io/project-name>.
-
 
 ## Built With
 
