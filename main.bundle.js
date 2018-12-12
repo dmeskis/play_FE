@@ -159,10 +159,34 @@
 
 	$('.favorites-table').on('click', '.add-to-playlist', function () {
 	  console.log('it works dumass');
-	  $('#playlistModal').css("display", "block");
+	  var song_id = this.id;
+	  $('#playlistModal').attr('value', "" + song_id).css("display", "block");
+	  plData.forEach(function (playlist) {
+	    var id = playlist['id'];
+	    var name = playlist['name'];
+	    $('.add-to-playlists-table').append("\n    <tr>\n      <td>" + name + "</td>\n      <td><button class='add-to-playlist' id=" + id + "><i class='icon fa fa-plus'></i></button></td>\n    </tr>\n    ");
+	  });
 	});
 
 	$('#playlistModal').on('click', '.close', function () {
+	  $('.add-to-playlists-table').empty();
+	  $('.add-to-playlists-table').append("\n                                      <tr>\n                                        <th>Name</th>\n                                        <th>Add to this playlist</th>\n                                      </tr>\n                                      ");
+	  $('#playlistModal').css("display", "none");
+	});
+
+	$('.playlistModal').on('click', '.add-to-playlist', function () {
+	  addUrl = "https://playbe.herokuapp.com/api/v1/playlists/" + playlist_id + "/songs/" + song_id;
+	  fetch(addUrl, {
+	    method: "POST",
+	    mode: "cors",
+	    headers: {
+	      "Content-Type": "application/json; charset=utf-8"
+	    },
+	    body: JSON.stringify(payload)
+	  }).then(function (response) {
+	    return response.json();
+	  });
+
 	  $('#playlistModal').css("display", "none");
 	});
 
