@@ -72,10 +72,6 @@ td, th {
   text-align: left;
   padding: 8px;
 }
-/*
-tr:nth-child(even) {
-  background-color: #dddddd;
-} */
 
 .table-names {
   text-align: center;
@@ -86,9 +82,27 @@ tr:nth-child(even) {
   text-align: center;
 }
 
+.playlist-songs {
+  align-content: center;
+}
+
+.playlist-songs-div {
+  text-align: center;
+}
+
+#playlist-songs-title {
+  text-align: center;
+  font-family: 'Bangers', cursive;
+}
+
 #heading {
   text-align: center;
   color: #00241B;
   font-family: 'Bangers', cursive;
+}
 
+#link-to-index {
+  text-align: center;
+  font: white;
+  display: block;
 }
