@@ -174,17 +174,20 @@
 	  $('#playlistModal').css("display", "none");
 	});
 
-	$('.playlistModal').on('click', '.add-to-playlist', function () {
-	  addUrl = "https://playbe.herokuapp.com/api/v1/playlists/" + playlist_id + "/songs/" + song_id;
+	$('.add-to-playlists-table').on('click', '.add-to-playlist', function () {
+	  var parent_element = this.parentElement.parentElement.parentElement.parentElement.parentElement;
+	  var playlist_id = this.id;
+	  var song_id = parent_element.attributes.value.value;
+	  var addUrl = "https://playbe.herokuapp.com/api/v1/playlists/" + playlist_id + "/songs/" + song_id;
+	  debugger;
 	  fetch(addUrl, {
 	    method: "POST",
 	    mode: "cors",
 	    headers: {
 	      "Content-Type": "application/json; charset=utf-8"
-	    },
-	    body: JSON.stringify(payload)
+	    }
 	  }).then(function (response) {
-	    return response.json();
+	    debugger;
 	  });
 
 	  $('#playlistModal').css("display", "none");
