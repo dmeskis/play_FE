@@ -129,3 +129,16 @@ tr:nth-child(even) {
   font-family: 'Bangers', cursive;
 
 }
+
+.alert {
+  color: white;
+  position: absolute;
+  top: 0;
+  left:0;
+  right:0;
+  transition-property: all;
+	transition-duration: 5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  text-align: center;
+  background-color: #00241b
+}
