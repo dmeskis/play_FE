@@ -22,7 +22,7 @@ See the site in action here: https://dry-shelf-31526.herokuapp.com/
   ```
 4. Follow the instructions for setting up [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack) to set up your       environment variables. You will need to sign up for an API key at Musixmatch and assign that to the variable MUSIXMATCH_API_KEY in your .env file to make requests to their api.
 
-5. Head over to our [back-end respository](https://github.com/JLing88/play) for this project and follow the instructions there if you'd like to host your own copy of our backend. Otherwise leave the code as it is and use our backend.
+5. Head over to our [back-end repository](https://github.com/JLing88/play) for this project and follow the instructions there if you'd like to host your own copy of our backend. Otherwise leave the code as it is and use our backend.
 
 ## Running the Server Locally
 
