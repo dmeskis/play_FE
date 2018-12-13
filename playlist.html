@@ -3,15 +3,25 @@
 <head>
   <meta charset="utf-8">
   <title>Playlist Generator</title>
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  <link rel="icon" href="./lib/favicon-music.ico">
+  <link rel="stylesheet" href="lib/styles.css" />
 </head>
 <body>
-  <script>
-      var urlParams = new URLSearchParams(window.location.search);
-      console.log(urlParams.get('id'))
-  </script>
+  <div class='playlist-songs-div'>
+    <table class='playlist-songs'>
+      <tr>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Rating</th>
+      </tr>
+    </table>
+  </div>
+  <a id='link-to-index' href='./index.html'>Back to Index</a>
   <script
     src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
   </script>
-  <script src="main.bundle.js"></script>
+  <script src="playlist.bundle.js"></script>
 </body>
 </html>

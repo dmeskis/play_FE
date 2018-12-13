@@ -4,6 +4,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = {
   entry: {
     main: "./lib/index.js",
+    playlist: './lib/playlist.js',
     test: "mocha!./test/index.js"
   },
   output: {
