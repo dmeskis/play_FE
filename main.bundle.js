@@ -49,6 +49,7 @@
 	// This file is in the entry point in your webpack config.
 
 	var api_key = ("229d1f0db4db72de996641e7a806b813");
+	var plData;
 
 	$(document).ready(function () {
 	  var song_url = "https://playbe.herokuapp.com/api/v1/favorites";
@@ -65,7 +66,8 @@
 	  fetch(playlist_url).then(function (result) {
 	    return result.json();
 	  }).then(function (playlistData) {
-	    buildPlaylists(playlistData);
+	    plData = playlistData;
+	    buildPlaylists(plData);
 	  }).catch(function (error) {
 	    console.error({ error: error });
 	  });
@@ -105,7 +107,7 @@
 	    var genre = song['genre'];
 	    var rating = song['song_rating'];
 
-	    $('.favorites-table').append("\n    <tr id='song-" + song.id + "'>\n      <td class='song_artist'>" + artist_name + "</td>\n      <td class='song_title'>" + title + "</td>\n      <td class='genre'>" + genre + "</td>\n      <td class='rating'>" + rating + "</td>\n      <td class='add-button'><button id=" + id + "><i class='icon fa fa-plus'></i></button></td>\n    </tr>\n    ");
+	    $('.favorites-table').append("\n    <tr id='song-" + song.id + "'>\n      <td class='song_artist'>" + artist_name + "</td>\n      <td class='song_title'>" + title + "</td>\n      <td class='genre'>" + genre + "</td>\n      <td class='rating'>" + rating + "</td>\n      <td class='add-button'><button class='add-to-playlist' id=" + id + "><i class='icon fa fa-plus'></i></button></td>\n    </tr>\n    ");
 	  });
 	};
 
@@ -125,6 +127,14 @@
 	  } else {
 	    return genre;
 	  }
+	};
+
+	var alertSaveSuccess = function alertSaveSuccess(body) {
+	  var message = body['message'];
+	  $('body').prepend("\n    <div class='alert'>\n    <span>" + message + "</span>\n    </div>\n    ");
+	  setTimeout(function () {
+	    $('.alert').remove();
+	  }, 2000);
 	};
 
 	var postSong = function postSong(payload) {
@@ -153,6 +163,46 @@
 	    }
 	  });
 	  postSong(payload);
+	});
+
+	$('.favorites-table').on('click', '.add-to-playlist', function () {
+	  console.log('it works dumass');
+	  var song_id = this.id;
+	  $('#playlistModal').attr('value', "" + song_id).css("display", "block");
+	  plData.forEach(function (playlist) {
+	    var id = playlist['id'];
+	    var name = playlist['name'];
+	    $('.add-to-playlists-table').append("\n    <tr>\n      <td>" + name + "</td>\n      <td><button class='add-to-playlist' id=" + id + "><i class='icon fa fa-plus'></i></button></td>\n    </tr>\n    ");
+	  });
+	});
+
+	$('#playlistModal').on('click', '.close', function () {
+	  $('.add-to-playlists-table').empty();
+	  $('.add-to-playlists-table').append("\n                                      <tr>\n                                        <th>Name</th>\n                                        <th>Add to this playlist</th>\n                                      </tr>\n                                      ");
+	  $('#playlistModal').css("display", "none");
+	});
+
+	$('.add-to-playlists-table').on('click', '.add-to-playlist', function () {
+	  var parent_element = this.parentElement.parentElement.parentElement.parentElement.parentElement;
+	  var playlist_id = this.id;
+	  var song_id = parent_element.attributes.value.value;
+	  var addUrl = "https://playbe.herokuapp.com/api/v1/playlists/" + playlist_id + "/songs/" + song_id;
+	  fetch(addUrl, {
+	    method: "POST",
+	    mode: "cors",
+	    headers: {
+	      "Content-Type": "application/json; charset=utf-8"
+	    }
+	  }).then(function (response) {
+	    return response.json();
+	  }).then(function (body) {
+	    return alertSaveSuccess(body);
+	  });
+
+	  $('#playlistModal').css("display", "none");
+	  $('.add-to-playlists-table').empty();
+	  $('.add-to-playlists-table').append("\n                                      <tr>\n                                        <th>Name</th>\n                                        <th>Add to this playlist</th>\n                                      </tr>\n                                      ");
+	  $('#playlistModal').css("display", "none");
 	});
 
 /***/ })
