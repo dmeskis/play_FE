@@ -99,6 +99,8 @@
 	};
 
 	var buildFavorites = function buildFavorites(songData) {
+	  $('.favorites-table').empty();
+	  $('.favorites-table').append("\n        <tr>\n          <th>Artist</th>\n          <th>Title</th>\n          <th>Genre</th>\n          <th>Rating</th>\n          <th>Add to Playlist</th>\n        </tr>\n  ");
 	  var songs = songData;
 	  songs.forEach(function (song) {
 	    var id = song['id'];
@@ -148,6 +150,14 @@
 	    body: JSON.stringify(payload)
 	  }).then(function (response) {
 	    return response.json();
+	  }).then(function () {
+	    fetch('https://playbe.herokuapp.com/api/v1/favorites').then(function (result) {
+	      return result.json();
+	    }).then(function (songData) {
+	      buildFavorites(songData);
+	    }).catch(function (error) {
+	      console.error({ error: error });
+	    });
 	  });
 	};
 
@@ -155,7 +165,7 @@
 	$('.artist-song-table').on('click', '.favorite_song', function () {
 	  var valid_key = ['name', 'artist_name', 'genre', 'song_rating'];
 	  var id = this.value;
-	  var cells = $("#song-" + id)[0].cells; // this grabs the row cells that belong to the corresponding button
+	  var cells = $("#" + id)[0].cells; // this grabs the row cells that belong to the corresponding button
 	  var payload = new Object();
 	  Array.prototype.forEach.call(cells, function (cell) {
 	    if (valid_key.includes(cell.className)) {

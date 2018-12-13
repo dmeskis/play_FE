@@ -54,14 +54,13 @@
 	  fetch(playlistSongsUrl).then(function (result) {
 	    return result.json();
 	  }).then(function (playlistSongs) {
-	    debugger;buildArtistSongs(playlistSongs[0]);
+	    buildArtistSongs(playlistSongs[0]);
 	  }).catch(function (error) {
 	    console.log({ error: error });
 	  });
 	});
 
 	var buildArtistSongs = function buildArtistSongs(playlistSongs) {
-	  debugger;
 	  addTitle(playlistSongs);
 	  playlistSongs.songs.forEach(function (song) {
 	    $('.playlist-songs').append('\n      <tr>\n        <td class=\'song_artist\'>' + song.artist_name + '</td>\n        <td class=\'song_title\'>' + song.name + '</td>\n        <td class=\'genre\'>' + song.genre + '</td>\n        <td class=\'rating\'>' + song.rating + '</td>\n      </tr>\n    ');
