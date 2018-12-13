@@ -6,6 +6,9 @@
 
 See the site in action here: https://playfe.herokuapp.com/
 
+![Index Preview](https://i.imgur.com/UaagM1h.png)
+![Playlist Preview](https://i.imgur.com/nX7Bimx.png)
+
 ## Initial Setup
 
 1. Clone this repository and rename the repository to anything you'd like in one command:
